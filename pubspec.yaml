@@ -1,7 +1,7 @@
 name: testapp
 description: A new Flutter application.
 
-version: 1.0.0+1
+version: 1.0.0+2
 
 environment:
   sdk: ">=2.4.0 <3.0.0"
@@ -9,9 +9,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   dartx: ^0.2.0
   extended_text: any
+  multi_image_picker: 4.6.1
   oktoast: ^2.2.1
+  permission_handler: 4.2.0+hotfix.2
   provider: 4.0.0
 
 dev_dependencies:

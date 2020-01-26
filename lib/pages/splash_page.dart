@@ -13,12 +13,16 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  final routeList = <String>[
-    Routes.LOOKS_LIKE_SLIVER_APPBAR_PAGE,
-    Routes.TEXT_FIELD_IN_FLOATING_ACTION_BUTTON_PAGE,
-    Routes.WILL_POP_SCOPE_PAGE,
-    Routes.CUSTOM_PAGE_VIEW_INDICATOR_PAGE,
-  ];
+  List<String> get routeList => <String>[
+        Routes.LOOKS_LIKE_SLIVER_APPBAR_PAGE,
+        Routes.TEXT_FIELD_IN_FLOATING_ACTION_BUTTON_PAGE,
+        Routes.WILL_POP_SCOPE_PAGE,
+        Routes.CUSTOM_PAGE_VIEW_INDICATOR_PAGE,
+        Routes.TEST_SCAFFOLD_RESIZE_PAGE,
+        Routes.CATEGORIES_PAGE,
+        Routes.TEST_MAP_NOTIFY_PAGE,
+        Routes.TEST_MULTI_IMAGE_PICKER_PAGE,
+      ];
 
   @override
   Widget build(BuildContext context) {

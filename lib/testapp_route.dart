@@ -5,22 +5,46 @@
 
 import 'package:flutter/widgets.dart';
 
+import 'pages/test_map_notify.dart';
+import 'pages/test_multi_image_picker.dart';
 import 'pages/will_pop_scope_page.dart';
+import 'pages/categories_page.dart';
 import 'pages/looks_like_sliver_appbar.dart';
+import 'pages/test_scaffold_resize_page.dart';
 import 'pages/textfield_as_fab_page.dart';
 import 'pages/custom_page_indicator_page.dart';
 
 RouteResult getRouteResult({String name, Map<String, dynamic> arguments}) {
   switch (name) {
+    case "/test-map-notify-page":
+      return RouteResult(
+        widget: TestMapNotifyPage(),
+        routeName: "Map notify测试页",
+      );
+    case "/test-multi-image-picker-page":
+      return RouteResult(
+        widget: TestMultiImagePickerPage(),
+        routeName: "测试多选图片页",
+      );
     case "/will-pop-scope-page":
       return RouteResult(
         widget: WillPopScopePage(),
         routeName: "pop拦截测试页",
       );
+    case "/categories-page":
+      return RouteResult(
+        widget: CategoriesPage(),
+        routeName: "分类页",
+      );
     case "/looks-like-sliver-appbar-page":
       return RouteResult(
         widget: LooksLikeSliverAppBarPage(),
         routeName: "SliverAppBar测试页",
+      );
+    case "/test-scaffold-resize-page":
+      return RouteResult(
+        widget: TestScaffoldResizePage(),
+        routeName: "Scaffold大小变化测试页",
       );
     case "/text-field-in-floating-action-button-page":
       return RouteResult(
@@ -64,18 +88,41 @@ class RouteResult {
 enum PageRouteType { material, cupertino, transparent }
 
 List<String> routeNames = [
+  "/test-map-notify-page",
+  "/test-multi-image-picker-page",
   "/will-pop-scope-page",
+  "/categories-page",
   "/looks-like-sliver-appbar-page",
+  "/test-scaffold-resize-page",
   "/text-field-in-floating-action-button-page",
   "/custom-page-view-indicator-page"
 ];
 
 class Routes {
+  /// Map notify测试页
+  ///
+  /// [name] : /test-map-notify-page
+  /// [routeName] : Map notify测试页
+  static const String TEST_MAP_NOTIFY_PAGE = "/test-map-notify-page";
+
+  /// 测试多选图片页
+  ///
+  /// [name] : /test-multi-image-picker-page
+  /// [routeName] : 测试多选图片页
+  static const String TEST_MULTI_IMAGE_PICKER_PAGE =
+      "/test-multi-image-picker-page";
+
   /// pop拦截测试页
   ///
   /// [name] : /will-pop-scope-page
   /// [routeName] : pop拦截测试页
   static const String WILL_POP_SCOPE_PAGE = "/will-pop-scope-page";
+
+  /// 分类页
+  ///
+  /// [name] : /categories-page
+  /// [routeName] : 分类页
+  static const String CATEGORIES_PAGE = "/categories-page";
 
   /// SliverAppBar测试页
   ///
@@ -83,6 +130,12 @@ class Routes {
   /// [routeName] : SliverAppBar测试页
   static const String LOOKS_LIKE_SLIVER_APPBAR_PAGE =
       "/looks-like-sliver-appbar-page";
+
+  /// Scaffold大小变化测试页
+  ///
+  /// [name] : /test-scaffold-resize-page
+  /// [routeName] : Scaffold大小变化测试页
+  static const String TEST_SCAFFOLD_RESIZE_PAGE = "/test-scaffold-resize-page";
 
   /// TextField与FAB测试页
   ///
