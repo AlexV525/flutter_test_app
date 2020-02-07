@@ -10,17 +10,17 @@ dependencies:
   flutter:
     sdk: flutter
 
-  dartx: ^0.2.0
+  dartx: ^0.3.0
   extended_text: any
   multi_image_picker: 4.6.1
-  oktoast: ^2.2.1
+  oktoast: ^2.3.1
   permission_handler: 4.2.0+hotfix.2
   provider: 4.0.0
 
 dev_dependencies:
-  ff_annotation_route: ^1.1.3+2
   flutter_test:
     sdk: flutter
+  ff_annotation_route: ^1.1.7
 
 flutter:
   uses-material-design: true

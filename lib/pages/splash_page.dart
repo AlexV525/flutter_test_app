@@ -22,6 +22,7 @@ class _SplashPageState extends State<SplashPage> {
         Routes.CATEGORIES_PAGE,
         Routes.TEST_MAP_NOTIFY_PAGE,
         Routes.TEST_MULTI_IMAGE_PICKER_PAGE,
+        Routes.TEST_STACK_TABBARVIEW_PAGE,
       ];
 
   @override

@@ -6,6 +6,7 @@
 import 'package:flutter/widgets.dart';
 
 import 'pages/test_map_notify.dart';
+import 'pages/test_tabbar_view_page.dart';
 import 'pages/test_multi_image_picker.dart';
 import 'pages/will_pop_scope_page.dart';
 import 'pages/categories_page.dart';
@@ -20,6 +21,11 @@ RouteResult getRouteResult({String name, Map<String, dynamic> arguments}) {
       return RouteResult(
         widget: TestMapNotifyPage(),
         routeName: "Map notify测试页",
+      );
+    case "/test-stack-tabbarview-page":
+      return RouteResult(
+        widget: TestTabBarViewPage(),
+        routeName: "测试TabBarView",
       );
     case "/test-multi-image-picker-page":
       return RouteResult(
@@ -89,6 +95,7 @@ enum PageRouteType { material, cupertino, transparent }
 
 List<String> routeNames = [
   "/test-map-notify-page",
+  "/test-stack-tabbarview-page",
   "/test-multi-image-picker-page",
   "/will-pop-scope-page",
   "/categories-page",
@@ -105,12 +112,17 @@ class Routes {
   /// [routeName] : Map notify测试页
   static const String TEST_MAP_NOTIFY_PAGE = "/test-map-notify-page";
 
+  /// 测试TabBarView
+  ///
+  /// [name] : /test-stack-tabbarview-page
+  /// [routeName] : 测试TabBarView
+  static const String TEST_STACK_TABBARVIEW_PAGE = "/test-stack-tabbarview-page";
+
   /// 测试多选图片页
   ///
   /// [name] : /test-multi-image-picker-page
   /// [routeName] : 测试多选图片页
-  static const String TEST_MULTI_IMAGE_PICKER_PAGE =
-      "/test-multi-image-picker-page";
+  static const String TEST_MULTI_IMAGE_PICKER_PAGE = "/test-multi-image-picker-page";
 
   /// pop拦截测试页
   ///
@@ -128,8 +140,7 @@ class Routes {
   ///
   /// [name] : /looks-like-sliver-appbar-page
   /// [routeName] : SliverAppBar测试页
-  static const String LOOKS_LIKE_SLIVER_APPBAR_PAGE =
-      "/looks-like-sliver-appbar-page";
+  static const String LOOKS_LIKE_SLIVER_APPBAR_PAGE = "/looks-like-sliver-appbar-page";
 
   /// Scaffold大小变化测试页
   ///
@@ -148,6 +159,5 @@ class Routes {
   ///
   /// [name] : /custom-page-view-indicator-page
   /// [routeName] : 自定义pageview indicator测试页
-  static const String CUSTOM_PAGE_VIEW_INDICATOR_PAGE =
-      "/custom-page-view-indicator-page";
+  static const String CUSTOM_PAGE_VIEW_INDICATOR_PAGE = "/custom-page-view-indicator-page";
 }
