@@ -6,10 +6,10 @@
 import 'package:flutter/widgets.dart';
 
 import 'pages/test_map_notify.dart';
-import 'pages/test_tabbar_view_page.dart';
 import 'pages/test_multi_image_picker.dart';
 import 'pages/will_pop_scope_page.dart';
 import 'pages/categories_page.dart';
+import 'pages/test_tabbar_view_page.dart';
 import 'pages/looks_like_sliver_appbar.dart';
 import 'pages/test_scaffold_resize_page.dart';
 import 'pages/textfield_as_fab_page.dart';
@@ -17,50 +17,50 @@ import 'pages/custom_page_indicator_page.dart';
 
 RouteResult getRouteResult({String name, Map<String, dynamic> arguments}) {
   switch (name) {
-    case "/test-map-notify-page":
-      return RouteResult(
-        widget: TestMapNotifyPage(),
-        routeName: "Map notify测试页",
-      );
-    case "/test-stack-tabbarview-page":
-      return RouteResult(
-        widget: TestTabBarViewPage(),
-        routeName: "测试TabBarView",
-      );
-    case "/test-multi-image-picker-page":
-      return RouteResult(
-        widget: TestMultiImagePickerPage(),
-        routeName: "测试多选图片页",
-      );
-    case "/will-pop-scope-page":
-      return RouteResult(
-        widget: WillPopScopePage(),
-        routeName: "pop拦截测试页",
-      );
     case "/categories-page":
       return RouteResult(
         widget: CategoriesPage(),
         routeName: "分类页",
+      );
+    case "/custom-page-view-indicator-page":
+      return RouteResult(
+        widget: CustomPageViewIndicatorPage(),
+        routeName: "自定义pageview indicator测试页",
       );
     case "/looks-like-sliver-appbar-page":
       return RouteResult(
         widget: LooksLikeSliverAppBarPage(),
         routeName: "SliverAppBar测试页",
       );
+    case "/test-map-notify-page":
+      return RouteResult(
+        widget: TestMapNotifyPage(),
+        routeName: "Map notify测试页",
+      );
+    case "/test-multi-image-picker-page":
+      return RouteResult(
+        widget: TestMultiImagePickerPage(),
+        routeName: "测试多选图片页",
+      );
     case "/test-scaffold-resize-page":
       return RouteResult(
         widget: TestScaffoldResizePage(),
         routeName: "Scaffold大小变化测试页",
+      );
+    case "/test-stack-tabbarview-page":
+      return RouteResult(
+        widget: TestTabBarViewPage(),
+        routeName: "测试TabBarView",
       );
     case "/text-field-in-floating-action-button-page":
       return RouteResult(
         widget: TextFieldInFloatingActionButtonPage(),
         routeName: "TextField与FAB测试页",
       );
-    case "/custom-page-view-indicator-page":
+    case "/will-pop-scope-page":
       return RouteResult(
-        widget: CustomPageViewIndicatorPage(),
-        routeName: "自定义pageview indicator测试页",
+        widget: WillPopScopePage(),
+        routeName: "pop拦截测试页",
       );
     default:
       return RouteResult();
@@ -83,52 +83,31 @@ class RouteResult {
   /// The description of route
   final String description;
 
-  const RouteResult(
-      {this.widget,
-      this.showStatusBar = true,
-      this.routeName = '',
-      this.pageRouteType,
-      this.description = ''});
+  const RouteResult({
+    this.widget,
+    this.showStatusBar = true,
+    this.routeName = '',
+    this.pageRouteType,
+    this.description = '',
+  });
 }
 
 enum PageRouteType { material, cupertino, transparent }
 
 List<String> routeNames = [
-  "/test-map-notify-page",
-  "/test-stack-tabbarview-page",
-  "/test-multi-image-picker-page",
-  "/will-pop-scope-page",
   "/categories-page",
+  "/custom-page-view-indicator-page",
   "/looks-like-sliver-appbar-page",
+  "/test-map-notify-page",
+  "/test-multi-image-picker-page",
   "/test-scaffold-resize-page",
+  "/test-stack-tabbarview-page",
   "/text-field-in-floating-action-button-page",
-  "/custom-page-view-indicator-page"
+  "/will-pop-scope-page"
 ];
 
 class Routes {
-  /// Map notify测试页
-  ///
-  /// [name] : /test-map-notify-page
-  /// [routeName] : Map notify测试页
-  static const String TEST_MAP_NOTIFY_PAGE = "/test-map-notify-page";
-
-  /// 测试TabBarView
-  ///
-  /// [name] : /test-stack-tabbarview-page
-  /// [routeName] : 测试TabBarView
-  static const String TEST_STACK_TABBARVIEW_PAGE = "/test-stack-tabbarview-page";
-
-  /// 测试多选图片页
-  ///
-  /// [name] : /test-multi-image-picker-page
-  /// [routeName] : 测试多选图片页
-  static const String TEST_MULTI_IMAGE_PICKER_PAGE = "/test-multi-image-picker-page";
-
-  /// pop拦截测试页
-  ///
-  /// [name] : /will-pop-scope-page
-  /// [routeName] : pop拦截测试页
-  static const String WILL_POP_SCOPE_PAGE = "/will-pop-scope-page";
+  const Routes._();
 
   /// 分类页
   ///
@@ -136,17 +115,45 @@ class Routes {
   /// [routeName] : 分类页
   static const String CATEGORIES_PAGE = "/categories-page";
 
+  /// 自定义pageview indicator测试页
+  ///
+  /// [name] : /custom-page-view-indicator-page
+  /// [routeName] : 自定义pageview indicator测试页
+  static const String CUSTOM_PAGE_VIEW_INDICATOR_PAGE =
+      "/custom-page-view-indicator-page";
+
   /// SliverAppBar测试页
   ///
   /// [name] : /looks-like-sliver-appbar-page
   /// [routeName] : SliverAppBar测试页
-  static const String LOOKS_LIKE_SLIVER_APPBAR_PAGE = "/looks-like-sliver-appbar-page";
+  static const String LOOKS_LIKE_SLIVER_APPBAR_PAGE =
+      "/looks-like-sliver-appbar-page";
+
+  /// Map notify测试页
+  ///
+  /// [name] : /test-map-notify-page
+  /// [routeName] : Map notify测试页
+  static const String TEST_MAP_NOTIFY_PAGE = "/test-map-notify-page";
+
+  /// 测试多选图片页
+  ///
+  /// [name] : /test-multi-image-picker-page
+  /// [routeName] : 测试多选图片页
+  static const String TEST_MULTI_IMAGE_PICKER_PAGE =
+      "/test-multi-image-picker-page";
 
   /// Scaffold大小变化测试页
   ///
   /// [name] : /test-scaffold-resize-page
   /// [routeName] : Scaffold大小变化测试页
   static const String TEST_SCAFFOLD_RESIZE_PAGE = "/test-scaffold-resize-page";
+
+  /// 测试TabBarView
+  ///
+  /// [name] : /test-stack-tabbarview-page
+  /// [routeName] : 测试TabBarView
+  static const String TEST_STACK_TABBARVIEW_PAGE =
+      "/test-stack-tabbarview-page";
 
   /// TextField与FAB测试页
   ///
@@ -155,9 +162,9 @@ class Routes {
   static const String TEXT_FIELD_IN_FLOATING_ACTION_BUTTON_PAGE =
       "/text-field-in-floating-action-button-page";
 
-  /// 自定义pageview indicator测试页
+  /// pop拦截测试页
   ///
-  /// [name] : /custom-page-view-indicator-page
-  /// [routeName] : 自定义pageview indicator测试页
-  static const String CUSTOM_PAGE_VIEW_INDICATOR_PAGE = "/custom-page-view-indicator-page";
+  /// [name] : /will-pop-scope-page
+  /// [routeName] : pop拦截测试页
+  static const String WILL_POP_SCOPE_PAGE = "/will-pop-scope-page";
 }
