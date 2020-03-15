@@ -41,18 +41,15 @@ class FFNavigatorObserver extends NavigatorObserver {
   }
 
   void _didRouteChange(Route newRoute, Route oldRoute) {
-    routeChange?.call(newRoute.settings, oldRoute.settings);
-  }
-
-  FFRouteSettings getFFRouteSettings(Route route) {
-    if (route?.settings is FFRouteSettings) return route.settings;
-    return null;
+    // oldRoute may be null when route first time enter.
+    routeChange?.call(newRoute, oldRoute);
   }
 }
 
-typedef ShowStatusBarChange = void Function(bool showStatusBar);
-
-typedef RouteChange = void Function(RouteSettings newRouteSettings, RouteSettings oldRouteSettings);
+typedef RouteChange = void Function(
+  Route newRoute,
+  Route oldRoute,
+);
 
 class FFTransparentPageRoute<T> extends PageRouteBuilder<T> {
   FFTransparentPageRoute({
@@ -90,26 +87,36 @@ Widget _defaultTransitionsBuilder(
   return child;
 }
 
-Route<dynamic> onGenerateRouteHelper(RouteSettings settings, {Widget notFoundFallback}) {
+Route<dynamic> onGenerateRouteHelper(
+  RouteSettings settings, {
+  Widget notFoundFallback,
+  Object arguments,
+}) {
+  arguments ??= settings.arguments;
+
   final routeResult = getRouteResult(
     name: settings.name,
-    arguments: settings.arguments,
+    arguments: arguments,
   );
   if (routeResult.showStatusBar != null || routeResult.routeName != null) {
     settings = FFRouteSettings(
       name: settings.name,
       isInitialRoute: settings.isInitialRoute,
       routeName: routeResult.routeName,
-      arguments: settings.arguments,
+      arguments: arguments,
       showStatusBar: routeResult.showStatusBar,
     );
   }
-  final page = routeResult.widget ??
-      notFoundFallback ??
-      Center(child: Text("${settings.name}\npage not found."));
+  final page = routeResult.widget ?? notFoundFallback;
+  if (page == null) {
+    throw Exception(
+        '''Route "${settings.name}" returned null.Route Widget must never return null, 
+          maybe the reason is that route name did not match with right path.
+          You can use parameter[notFoundFallback] to avoid this ugly error.''');
+  }
 
-  if (settings?.arguments is Map<String, dynamic>) {
-    RouteBuilder builder = (settings.arguments as Map<String, dynamic>)['routeBuilder'];
+  if (arguments is Map<String, dynamic>) {
+    RouteBuilder builder = arguments['routeBuilder'];
     if (builder != null) return builder(page);
   }
 

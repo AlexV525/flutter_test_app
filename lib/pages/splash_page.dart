@@ -13,18 +13,6 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  List<String> get routeList => <String>[
-        Routes.LOOKS_LIKE_SLIVER_APPBAR_PAGE,
-        Routes.TEXT_FIELD_IN_FLOATING_ACTION_BUTTON_PAGE,
-        Routes.WILL_POP_SCOPE_PAGE,
-        Routes.CUSTOM_PAGE_VIEW_INDICATOR_PAGE,
-        Routes.TEST_SCAFFOLD_RESIZE_PAGE,
-        Routes.CATEGORIES_PAGE,
-        Routes.TEST_MAP_NOTIFY_PAGE,
-        Routes.TEST_MULTI_IMAGE_PICKER_PAGE,
-        Routes.TEST_STACK_TABBARVIEW_PAGE,
-      ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,11 +24,11 @@ class _SplashPageState extends State<SplashPage> {
       ),
       body: ListView.builder(
         padding: EdgeInsets.symmetric(vertical: 20.0),
-        itemCount: routeList.length,
+        itemCount: routeNames.length,
         itemBuilder: (_, index) => Center(
           child: FlatButton(
-            onPressed: () => Navigator.of(context).pushNamed(routeList.elementAt(index)),
-            child: Text(routeList.elementAt(index)),
+            onPressed: () => Navigator.of(context).pushNamed(routeNames.elementAt(index)),
+            child: Text(routeNames.elementAt(index)),
           ),
         ),
       ),
