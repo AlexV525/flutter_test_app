@@ -6,3 +6,4 @@ export 'package:ff_annotation_route/ff_annotation_route.dart' show FFRoute, Page
 export 'package:oktoast/oktoast.dart';
 
 export 'package:testapp/providers/providers.dart';
+export 'package:testapp/testapp_route.dart' show Routes;

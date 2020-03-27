@@ -5,16 +5,17 @@
 
 import 'package:flutter/widgets.dart';
 
-import 'pages/categories_page.dart';
-import 'pages/custom_page_indicator_page.dart';
-import 'pages/looks_like_sliver_appbar.dart';
 import 'pages/test_map_notify.dart';
 import 'pages/test_multi_image_picker.dart';
+import 'pages/will_pop_scope_page.dart';
+import 'pages/categories_page.dart';
+import 'pages/test_tabbar_view_page.dart';
+import 'pages/looks_like_sliver_appbar.dart';
+import 'pages/test_generic_type_route.dart';
 import 'pages/test_scaffold_resize_page.dart';
 import 'pages/test_inner_shadow_page.dart';
-import 'pages/test_tabbar_view_page.dart';
 import 'pages/textfield_as_fab_page.dart';
-import 'pages/will_pop_scope_page.dart';
+import 'pages/custom_page_indicator_page.dart';
 
 RouteResult getRouteResult({String name, Map<String, dynamic> arguments}) {
   switch (name) {
@@ -32,6 +33,16 @@ RouteResult getRouteResult({String name, Map<String, dynamic> arguments}) {
       return RouteResult(
         widget: LooksLikeSliverAppBarPage(),
         routeName: "SliverAppBar测试页",
+      );
+    case "/test-generic-type-route-page":
+      return RouteResult(
+        widget: TestGenericTypeRoutePage(),
+        routeName: "测试泛型路由页",
+      );
+    case "/test-generic-type-route-page-2":
+      return RouteResult(
+        widget: TestGenericTypeRoutePage2(),
+        routeName: "测试泛型路由页2",
       );
     case "/test-inner-shadow-page":
       return RouteResult(
@@ -104,6 +115,8 @@ List<String> routeNames = [
   "/categories-page",
   "/custom-page-view-indicator-page",
   "/looks-like-sliver-appbar-page",
+  "/test-generic-type-route-page",
+  "/test-generic-type-route-page-2",
   "/test-inner-shadow-page",
   "/test-map-notify-page",
   "/test-multi-image-picker-page",
@@ -126,13 +139,29 @@ class Routes {
   ///
   /// [name] : /custom-page-view-indicator-page
   /// [routeName] : 自定义pageview indicator测试页
-  static const String CUSTOM_PAGE_VIEW_INDICATOR_PAGE = "/custom-page-view-indicator-page";
+  static const String CUSTOM_PAGE_VIEW_INDICATOR_PAGE =
+      "/custom-page-view-indicator-page";
 
   /// SliverAppBar测试页
   ///
   /// [name] : /looks-like-sliver-appbar-page
   /// [routeName] : SliverAppBar测试页
-  static const String LOOKS_LIKE_SLIVER_APPBAR_PAGE = "/looks-like-sliver-appbar-page";
+  static const String LOOKS_LIKE_SLIVER_APPBAR_PAGE =
+      "/looks-like-sliver-appbar-page";
+
+  /// 测试泛型路由页
+  ///
+  /// [name] : /test-generic-type-route-page
+  /// [routeName] : 测试泛型路由页
+  static const String TEST_GENERIC_TYPE_ROUTE_PAGE =
+      "/test-generic-type-route-page";
+
+  /// 测试泛型路由页2
+  ///
+  /// [name] : /test-generic-type-route-page-2
+  /// [routeName] : 测试泛型路由页2
+  static const String TEST_GENERIC_TYPE_ROUTE_PAGE_2 =
+      "/test-generic-type-route-page-2";
 
   /// 内部阴影测试页
   ///
@@ -150,7 +179,8 @@ class Routes {
   ///
   /// [name] : /test-multi-image-picker-page
   /// [routeName] : 测试多选图片页
-  static const String TEST_MULTI_IMAGE_PICKER_PAGE = "/test-multi-image-picker-page";
+  static const String TEST_MULTI_IMAGE_PICKER_PAGE =
+      "/test-multi-image-picker-page";
 
   /// Scaffold大小变化测试页
   ///
@@ -162,7 +192,8 @@ class Routes {
   ///
   /// [name] : /test-stack-tabbarview-page
   /// [routeName] : 测试TabBarView
-  static const String TEST_STACK_TABBARVIEW_PAGE = "/test-stack-tabbarview-page";
+  static const String TEST_STACK_TABBARVIEW_PAGE =
+      "/test-stack-tabbarview-page";
 
   /// TextField与FAB测试页
   ///
