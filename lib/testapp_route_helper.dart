@@ -87,66 +87,65 @@ Widget _defaultTransitionsBuilder(
   return child;
 }
 
-Route<dynamic> onGenerateRouteHelper(
+Route<T> onGenerateRouteHelper<T>(
   RouteSettings settings, {
   Widget notFoundFallback,
   Object arguments,
 }) {
   arguments ??= settings.arguments;
 
-  final routeResult = getRouteResult(
+  final RouteResult<T> routeResult = getRouteResult<T>(
     name: settings.name,
     arguments: arguments,
   );
   if (routeResult.showStatusBar != null || routeResult.routeName != null) {
     settings = FFRouteSettings(
       name: settings.name,
-      isInitialRoute: settings.isInitialRoute,
       routeName: routeResult.routeName,
       arguments: arguments,
       showStatusBar: routeResult.showStatusBar,
     );
   }
-  final page = routeResult.widget ?? notFoundFallback;
+  final Widget page = routeResult.widget ?? notFoundFallback;
   if (page == null) {
-    throw Exception(
-        '''Route "${settings.name}" returned null.Route Widget must never return null, 
+    throw Exception('''Route "${settings.name}" returned null.Route Widget must never return null, 
           maybe the reason is that route name did not match with right path.
           You can use parameter[notFoundFallback] to avoid this ugly error.''');
   }
 
   if (arguments is Map<String, dynamic>) {
     RouteBuilder builder = arguments['routeBuilder'];
-    if (builder != null) return builder(page);
+    if (builder != null) return builder<T>(page);
   }
 
   switch (routeResult.pageRouteType) {
     case PageRouteType.material:
-      return MaterialPageRoute(settings: settings, builder: (_) => page);
+      return MaterialPageRoute<T>(settings: settings, builder: (_) => page);
     case PageRouteType.cupertino:
-      return CupertinoPageRoute(settings: settings, builder: (_) => page);
+      return CupertinoPageRoute<T>(settings: settings, builder: (_) => page);
     case PageRouteType.transparent:
-      return FFTransparentPageRoute(
+      return FFTransparentPageRoute<T>(
         settings: settings,
         pageBuilder: (_, __, ___) => page,
       );
     default:
       return Platform.isIOS
-          ? CupertinoPageRoute(settings: settings, builder: (_) => page)
-          : MaterialPageRoute(settings: settings, builder: (_) => page);
+          ? CupertinoPageRoute<T>(settings: settings, builder: (_) => page)
+          : MaterialPageRoute<T>(settings: settings, builder: (_) => page);
   }
 }
 
-typedef RouteBuilder = PageRoute Function(Widget page);
+typedef RouteBuilder = PageRoute<T> Function<T>(Widget page);
 
 class FFRouteSettings extends RouteSettings {
-  final String routeName;
-  final bool showStatusBar;
   const FFRouteSettings({
     this.routeName,
     this.showStatusBar,
     String name,
     bool isInitialRoute = false,
     Object arguments,
-  }) : super(name: name, isInitialRoute: isInitialRoute, arguments: arguments);
+  }) : super(name: name, arguments: arguments);
+
+  final String routeName;
+  final bool showStatusBar;
 }

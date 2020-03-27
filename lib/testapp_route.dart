@@ -17,74 +17,82 @@ import 'pages/test_inner_shadow_page.dart';
 import 'pages/textfield_as_fab_page.dart';
 import 'pages/custom_page_indicator_page.dart';
 
-RouteResult getRouteResult({String name, Map<String, dynamic> arguments}) {
+RouteResult<T> getRouteResult<T>({String name, Map<String, dynamic> arguments}) {
   switch (name) {
     case "/categories-page":
-      return RouteResult(
+      return RouteResult<T>(
         widget: CategoriesPage(),
         routeName: "分类页",
       );
     case "/custom-page-view-indicator-page":
-      return RouteResult(
+      return RouteResult<T>(
         widget: CustomPageViewIndicatorPage(),
         routeName: "自定义pageview indicator测试页",
       );
     case "/looks-like-sliver-appbar-page":
-      return RouteResult(
+      return RouteResult<T>(
         widget: LooksLikeSliverAppBarPage(),
         routeName: "SliverAppBar测试页",
       );
     case "/test-generic-type-route-page":
-      return RouteResult(
+      return RouteResult<T>(
         widget: TestGenericTypeRoutePage(),
         routeName: "测试泛型路由页",
       );
     case "/test-generic-type-route-page-2":
-      return RouteResult(
+      return RouteResult<T>(
         widget: TestGenericTypeRoutePage2(),
         routeName: "测试泛型路由页2",
       );
     case "/test-inner-shadow-page":
-      return RouteResult(
+      return RouteResult<T>(
         widget: TestInnerShadowPage(),
         routeName: "内部阴影测试页",
       );
     case "/test-map-notify-page":
-      return RouteResult(
+      return RouteResult<T>(
         widget: TestMapNotifyPage(),
         routeName: "Map notify测试页",
       );
     case "/test-multi-image-picker-page":
-      return RouteResult(
+      return RouteResult<T>(
         widget: TestMultiImagePickerPage(),
         routeName: "测试多选图片页",
       );
     case "/test-scaffold-resize-page":
-      return RouteResult(
+      return RouteResult<T>(
         widget: TestScaffoldResizePage(),
         routeName: "Scaffold大小变化测试页",
       );
     case "/test-stack-tabbarview-page":
-      return RouteResult(
+      return RouteResult<T>(
         widget: TestTabBarViewPage(),
         routeName: "测试TabBarView",
       );
     case "/text-field-in-floating-action-button-page":
-      return RouteResult(
+      return RouteResult<T>(
         widget: TextFieldInFloatingActionButtonPage(),
         routeName: "TextField与FAB测试页",
       );
     case "/will-pop-scope-page":
-      return RouteResult(
+      return RouteResult<T>(
         widget: WillPopScopePage(),
         routeName: "pop拦截测试页",
       );
     default:
-      return RouteResult();
+      return RouteResult<T>();
   }
 }
 
-class RouteResult {
+class RouteResult<T> {
+  const RouteResult({
+    this.widget,
+    this.showStatusBar = true,
+    this.routeName = '',
+    this.pageRouteType,
+    this.description = '',
+  });
+
   /// The Widget return base on route
   final Widget widget;
 
@@ -99,14 +107,6 @@ class RouteResult {
 
   /// The description of route
   final String description;
-
-  const RouteResult({
-    this.widget,
-    this.showStatusBar = true,
-    this.routeName = '',
-    this.pageRouteType,
-    this.description = '',
-  });
 }
 
 enum PageRouteType { material, cupertino, transparent }
