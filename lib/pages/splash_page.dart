@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'package:testapp/testapp_route.dart';
+import 'package:testapp/constants/constants.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -16,12 +16,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Splash Page",
-          style: Theme.of(context).textTheme.title,
-        ),
-      ),
+      appBar: AppBar(title: Text("Splash Page")),
       body: ListView.builder(
         padding: EdgeInsets.symmetric(vertical: 20.0),
         itemCount: routeNames.length,

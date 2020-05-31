@@ -14,7 +14,8 @@ import 'package:testapp/constants/constants.dart';
 )
 class LooksLikeSliverAppBarPage extends StatefulWidget {
   @override
-  _LooksLikeSliverAppBarPageState createState() => _LooksLikeSliverAppBarPageState();
+  _LooksLikeSliverAppBarPageState createState() =>
+      _LooksLikeSliverAppBarPageState();
 }
 
 class _LooksLikeSliverAppBarPageState extends State<LooksLikeSliverAppBarPage> {

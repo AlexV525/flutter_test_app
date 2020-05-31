@@ -15,7 +15,8 @@ class TestTabBarViewPage extends StatefulWidget {
   _TestTabBarViewPageState createState() => _TestTabBarViewPageState();
 }
 
-class _TestTabBarViewPageState extends State<TestTabBarViewPage> with TickerProviderStateMixin {
+class _TestTabBarViewPageState extends State<TestTabBarViewPage>
+    with TickerProviderStateMixin {
   StreamController indexController = StreamController<double>.broadcast();
   TabController tabController;
 
@@ -36,7 +37,8 @@ class _TestTabBarViewPageState extends State<TestTabBarViewPage> with TickerProv
     return Scaffold(
       body: NotificationListener(
         onNotification: (ScrollNotification notification) {
-          indexController.add(notification.metrics.pixels / notification.metrics.viewportDimension);
+          indexController.add(notification.metrics.pixels /
+              notification.metrics.viewportDimension);
           return true;
         },
         child: Stack(
@@ -64,7 +66,8 @@ class _TestTabBarViewPageState extends State<TestTabBarViewPage> with TickerProv
                 initialData: 0.0,
                 stream: indexController.stream,
                 builder: (_, data) => Container(
-                  color: Colors.blue.withOpacity(math.min(1.0, data.data as double) * 1.0),
+                  color: Colors.blue
+                      .withOpacity(math.min(1.0, data.data as double) * 1.0),
                   child: TabBar(
                     controller: tabController,
                     indicatorColor: Colors.transparent,

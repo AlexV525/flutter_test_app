@@ -16,7 +16,8 @@ class TextFieldInFloatingActionButtonPage extends StatefulWidget {
       _TextFieldInFloatingActionButtonPageState();
 }
 
-class _TextFieldInFloatingActionButtonPageState extends State<TextFieldInFloatingActionButtonPage> {
+class _TextFieldInFloatingActionButtonPageState
+    extends State<TextFieldInFloatingActionButtonPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -12,10 +12,12 @@ import 'package:testapp/constants/constants.dart';
 )
 class CustomPageViewIndicatorPage extends StatefulWidget {
   @override
-  _CustomPageViewIndicatorPageState createState() => _CustomPageViewIndicatorPageState();
+  _CustomPageViewIndicatorPageState createState() =>
+      _CustomPageViewIndicatorPageState();
 }
 
-class _CustomPageViewIndicatorPageState extends State<CustomPageViewIndicatorPage> {
+class _CustomPageViewIndicatorPageState
+    extends State<CustomPageViewIndicatorPage> {
   final pageController = PageController();
 
   @override

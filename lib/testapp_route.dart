@@ -5,93 +5,93 @@
 
 import 'package:flutter/widgets.dart';
 
-import 'pages/test_map_notify.dart';
-import 'pages/test_multi_image_picker.dart';
-import 'pages/will_pop_scope_page.dart';
 import 'pages/categories_page.dart';
-import 'pages/test_tabbar_view_page.dart';
-import 'pages/looks_like_sliver_appbar.dart';
-import 'pages/test_generic_type_route.dart';
-import 'pages/test_scaffold_resize_page.dart';
-import 'pages/test_inner_shadow_page.dart';
-import 'pages/textfield_as_fab_page.dart';
 import 'pages/custom_page_indicator_page.dart';
+import 'pages/looks_like_sliver_appbar.dart';
+import 'pages/test_inner_shadow_page.dart';
+import 'pages/test_map_notify.dart';
+import 'pages/test_scaffold_resize_page.dart';
+import 'pages/test_tabbar_view_page.dart';
+import 'pages/textfield_as_fab_page.dart';
+import 'pages/will_pop_scope_page.dart';
 
-RouteResult<T> getRouteResult<T>({String name, Map<String, dynamic> arguments}) {
+// ignore_for_file: argument_type_not_assignable
+RouteResult getRouteResult({String name, Map<String, dynamic> arguments}) {
   switch (name) {
-    case "/categories-page":
-      return RouteResult<T>(
+    case '/categories-page':
+      return RouteResult(
+        name: name,
         widget: CategoriesPage(),
-        routeName: "分类页",
+        routeName: '分类页',
       );
-    case "/custom-page-view-indicator-page":
-      return RouteResult<T>(
+    case '/custom-page-view-indicator-page':
+      return RouteResult(
+        name: name,
         widget: CustomPageViewIndicatorPage(),
-        routeName: "自定义pageview indicator测试页",
+        routeName: '自定义pageview indicator测试页',
       );
-    case "/looks-like-sliver-appbar-page":
-      return RouteResult<T>(
+    case '/looks-like-sliver-appbar-page':
+      return RouteResult(
+        name: name,
         widget: LooksLikeSliverAppBarPage(),
-        routeName: "SliverAppBar测试页",
+        routeName: 'SliverAppBar测试页',
       );
-    case "/test-generic-type-route-page":
-      return RouteResult<T>(
-        widget: TestGenericTypeRoutePage(),
-        routeName: "测试泛型路由页",
-      );
-    case "/test-generic-type-route-page-2":
-      return RouteResult<T>(
-        widget: TestGenericTypeRoutePage2(),
-        routeName: "测试泛型路由页2",
-      );
-    case "/test-inner-shadow-page":
-      return RouteResult<T>(
+    case '/test-inner-shadow-page':
+      return RouteResult(
+        name: name,
         widget: TestInnerShadowPage(),
-        routeName: "内部阴影测试页",
+        routeName: '内部阴影测试页',
       );
-    case "/test-map-notify-page":
-      return RouteResult<T>(
+    case '/test-map-notify-page':
+      return RouteResult(
+        name: name,
         widget: TestMapNotifyPage(),
-        routeName: "Map notify测试页",
+        routeName: 'Map notify测试页',
       );
-    case "/test-multi-image-picker-page":
-      return RouteResult<T>(
-        widget: TestMultiImagePickerPage(),
-        routeName: "测试多选图片页",
-      );
-    case "/test-scaffold-resize-page":
-      return RouteResult<T>(
+    case '/test-scaffold-resize-page':
+      return RouteResult(
+        name: name,
         widget: TestScaffoldResizePage(),
-        routeName: "Scaffold大小变化测试页",
+        routeName: 'Scaffold大小变化测试页',
       );
-    case "/test-stack-tabbarview-page":
-      return RouteResult<T>(
+    case '/test-stack-tabbarview-page':
+      return RouteResult(
+        name: name,
         widget: TestTabBarViewPage(),
-        routeName: "测试TabBarView",
+        routeName: '测试TabBarView',
       );
-    case "/text-field-in-floating-action-button-page":
-      return RouteResult<T>(
+    case '/text-field-in-floating-action-button-page':
+      return RouteResult(
+        name: name,
         widget: TextFieldInFloatingActionButtonPage(),
-        routeName: "TextField与FAB测试页",
+        routeName: 'TextField与FAB测试页',
       );
-    case "/will-pop-scope-page":
-      return RouteResult<T>(
+    case '/will-pop-scope-page':
+      return RouteResult(
+        name: name,
         widget: WillPopScopePage(),
-        routeName: "pop拦截测试页",
+        routeName: 'pop拦截测试页',
       );
     default:
-      return RouteResult<T>();
+      return const RouteResult(name: 'flutterCandies://notfound');
   }
 }
 
-class RouteResult<T> {
+class RouteResult {
   const RouteResult({
+    @required this.name,
     this.widget,
     this.showStatusBar = true,
     this.routeName = '',
     this.pageRouteType,
     this.description = '',
+    this.exts,
   });
+
+  /// The name of the route (e.g., "/settings").
+  ///
+  /// If null, the route is anonymous.
+  final String name;
 
   /// The Widget return base on route
   final Widget widget;
@@ -107,104 +107,13 @@ class RouteResult<T> {
 
   /// The description of route
   final String description;
+
+  /// The extend arguments
+  final Map<String, dynamic> exts;
 }
 
-enum PageRouteType { material, cupertino, transparent }
-
-List<String> routeNames = [
-  "/categories-page",
-  "/custom-page-view-indicator-page",
-  "/looks-like-sliver-appbar-page",
-  "/test-generic-type-route-page",
-  "/test-generic-type-route-page-2",
-  "/test-inner-shadow-page",
-  "/test-map-notify-page",
-  "/test-multi-image-picker-page",
-  "/test-scaffold-resize-page",
-  "/test-stack-tabbarview-page",
-  "/text-field-in-floating-action-button-page",
-  "/will-pop-scope-page"
-];
-
-class Routes {
-  const Routes._();
-
-  /// 分类页
-  ///
-  /// [name] : /categories-page
-  /// [routeName] : 分类页
-  static const String CATEGORIES_PAGE = "/categories-page";
-
-  /// 自定义pageview indicator测试页
-  ///
-  /// [name] : /custom-page-view-indicator-page
-  /// [routeName] : 自定义pageview indicator测试页
-  static const String CUSTOM_PAGE_VIEW_INDICATOR_PAGE =
-      "/custom-page-view-indicator-page";
-
-  /// SliverAppBar测试页
-  ///
-  /// [name] : /looks-like-sliver-appbar-page
-  /// [routeName] : SliverAppBar测试页
-  static const String LOOKS_LIKE_SLIVER_APPBAR_PAGE =
-      "/looks-like-sliver-appbar-page";
-
-  /// 测试泛型路由页
-  ///
-  /// [name] : /test-generic-type-route-page
-  /// [routeName] : 测试泛型路由页
-  static const String TEST_GENERIC_TYPE_ROUTE_PAGE =
-      "/test-generic-type-route-page";
-
-  /// 测试泛型路由页2
-  ///
-  /// [name] : /test-generic-type-route-page-2
-  /// [routeName] : 测试泛型路由页2
-  static const String TEST_GENERIC_TYPE_ROUTE_PAGE_2 =
-      "/test-generic-type-route-page-2";
-
-  /// 内部阴影测试页
-  ///
-  /// [name] : /test-inner-shadow-page
-  /// [routeName] : 内部阴影测试页
-  static const String TEST_INNER_SHADOW_PAGE = "/test-inner-shadow-page";
-
-  /// Map notify测试页
-  ///
-  /// [name] : /test-map-notify-page
-  /// [routeName] : Map notify测试页
-  static const String TEST_MAP_NOTIFY_PAGE = "/test-map-notify-page";
-
-  /// 测试多选图片页
-  ///
-  /// [name] : /test-multi-image-picker-page
-  /// [routeName] : 测试多选图片页
-  static const String TEST_MULTI_IMAGE_PICKER_PAGE =
-      "/test-multi-image-picker-page";
-
-  /// Scaffold大小变化测试页
-  ///
-  /// [name] : /test-scaffold-resize-page
-  /// [routeName] : Scaffold大小变化测试页
-  static const String TEST_SCAFFOLD_RESIZE_PAGE = "/test-scaffold-resize-page";
-
-  /// 测试TabBarView
-  ///
-  /// [name] : /test-stack-tabbarview-page
-  /// [routeName] : 测试TabBarView
-  static const String TEST_STACK_TABBARVIEW_PAGE =
-      "/test-stack-tabbarview-page";
-
-  /// TextField与FAB测试页
-  ///
-  /// [name] : /text-field-in-floating-action-button-page
-  /// [routeName] : TextField与FAB测试页
-  static const String TEXT_FIELD_IN_FLOATING_ACTION_BUTTON_PAGE =
-      "/text-field-in-floating-action-button-page";
-
-  /// pop拦截测试页
-  ///
-  /// [name] : /will-pop-scope-page
-  /// [routeName] : pop拦截测试页
-  static const String WILL_POP_SCOPE_PAGE = "/will-pop-scope-page";
+enum PageRouteType {
+  material,
+  cupertino,
+  transparent,
 }

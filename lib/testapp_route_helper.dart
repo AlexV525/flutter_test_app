@@ -12,44 +12,42 @@ import 'package:flutter/widgets.dart';
 import 'testapp_route.dart';
 
 class FFNavigatorObserver extends NavigatorObserver {
-  final RouteChange routeChange;
-
   FFNavigatorObserver({this.routeChange});
 
+  final RouteChange routeChange;
+
   @override
-  void didPop(Route route, Route previousRoute) {
+  void didPop(Route<dynamic> route, Route<dynamic> previousRoute) {
     super.didPop(route, previousRoute);
     _didRouteChange(previousRoute, route);
   }
 
   @override
-  void didPush(Route route, Route previousRoute) {
+  void didPush(Route<dynamic> route, Route<dynamic> previousRoute) {
     super.didPush(route, previousRoute);
     _didRouteChange(route, previousRoute);
   }
 
   @override
-  void didRemove(Route route, Route previousRoute) {
+  void didRemove(Route<dynamic> route, Route<dynamic> previousRoute) {
     super.didRemove(route, previousRoute);
     _didRouteChange(previousRoute, route);
   }
 
   @override
-  void didReplace({Route newRoute, Route oldRoute}) {
+  void didReplace({Route<dynamic> newRoute, Route<dynamic> oldRoute}) {
     super.didReplace(newRoute: newRoute, oldRoute: oldRoute);
     _didRouteChange(newRoute, oldRoute);
   }
 
-  void _didRouteChange(Route newRoute, Route oldRoute) {
+  void _didRouteChange(Route<dynamic> newRoute, Route<dynamic> oldRoute) {
     // oldRoute may be null when route first time enter.
     routeChange?.call(newRoute, oldRoute);
   }
 }
 
 typedef RouteChange = void Function(
-  Route newRoute,
-  Route oldRoute,
-);
+    Route<dynamic> newRoute, Route<dynamic> oldRoute);
 
 class FFTransparentPageRoute<T> extends PageRouteBuilder<T> {
   FFTransparentPageRoute({
@@ -87,64 +85,87 @@ Widget _defaultTransitionsBuilder(
   return child;
 }
 
-Route<T> onGenerateRouteHelper<T>(
+Route<dynamic> onGenerateRouteHelper(
   RouteSettings settings, {
   Widget notFoundFallback,
   Object arguments,
 }) {
   arguments ??= settings.arguments;
 
-  final RouteResult<T> routeResult = getRouteResult<T>(
+  final RouteResult routeResult = getRouteResult(
     name: settings.name,
-    arguments: arguments,
+    arguments: arguments as Map<String, dynamic>,
   );
   if (routeResult.showStatusBar != null || routeResult.routeName != null) {
     settings = FFRouteSettings(
       name: settings.name,
       routeName: routeResult.routeName,
-      arguments: arguments,
+      arguments: arguments as Map<String, dynamic>,
       showStatusBar: routeResult.showStatusBar,
     );
   }
   final Widget page = routeResult.widget ?? notFoundFallback;
   if (page == null) {
-    throw Exception('''Route "${settings.name}" returned null.Route Widget must never return null, 
+    throw Exception(
+      '''Route "${settings.name}" returned null. Route Widget must never return null, 
           maybe the reason is that route name did not match with right path.
-          You can use parameter[notFoundFallback] to avoid this ugly error.''');
+          You can use parameter[notFoundFallback] to avoid this ugly error.''',
+    );
   }
 
   if (arguments is Map<String, dynamic>) {
-    RouteBuilder builder = arguments['routeBuilder'];
-    if (builder != null) return builder<T>(page);
+    final RouteBuilder builder = arguments['routeBuilder'] as RouteBuilder;
+    if (builder != null) {
+      return builder(page);
+    }
   }
 
   switch (routeResult.pageRouteType) {
     case PageRouteType.material:
-      return MaterialPageRoute<T>(settings: settings, builder: (_) => page);
-    case PageRouteType.cupertino:
-      return CupertinoPageRoute<T>(settings: settings, builder: (_) => page);
-    case PageRouteType.transparent:
-      return FFTransparentPageRoute<T>(
+      return MaterialPageRoute<dynamic>(
         settings: settings,
-        pageBuilder: (_, __, ___) => page,
+        builder: (BuildContext _) => page,
+      );
+    case PageRouteType.cupertino:
+      return CupertinoPageRoute<dynamic>(
+        settings: settings,
+        builder: (BuildContext _) => page,
+      );
+    case PageRouteType.transparent:
+      return FFTransparentPageRoute<dynamic>(
+        settings: settings,
+        pageBuilder: (
+          BuildContext _,
+          Animation<double> __,
+          Animation<double> ___,
+        ) =>
+            page,
       );
     default:
       return Platform.isIOS
-          ? CupertinoPageRoute<T>(settings: settings, builder: (_) => page)
-          : MaterialPageRoute<T>(settings: settings, builder: (_) => page);
+          ? CupertinoPageRoute<dynamic>(
+              settings: settings,
+              builder: (BuildContext _) => page,
+            )
+          : MaterialPageRoute<dynamic>(
+              settings: settings,
+              builder: (BuildContext _) => page,
+            );
   }
 }
 
-typedef RouteBuilder = PageRoute<T> Function<T>(Widget page);
+typedef RouteBuilder = PageRoute<dynamic> Function(Widget page);
 
 class FFRouteSettings extends RouteSettings {
   const FFRouteSettings({
     this.routeName,
     this.showStatusBar,
     String name,
-    bool isInitialRoute = false,
     Object arguments,
-  }) : super(name: name, arguments: arguments);
+  }) : super(
+          name: name,
+          arguments: arguments,
+        );
 
   final String routeName;
   final bool showStatusBar;

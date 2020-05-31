@@ -13,7 +13,8 @@ class TestScaffoldResizePage extends StatefulWidget {
   final String message;
   final String baseUrl;
 
-  TestScaffoldResizePage({Key key, this.message, this.baseUrl = ''}) : super(key: key);
+  TestScaffoldResizePage({Key key, this.message, this.baseUrl = ''})
+      : super(key: key);
 
   @override
   _TestScaffoldResizePageState createState() => _TestScaffoldResizePageState();
@@ -37,7 +38,9 @@ class _TestScaffoldResizePageState extends State<TestScaffoldResizePage> {
         selection: TextSelection.fromPosition(
           TextPosition(
             affinity: TextAffinity.downstream,
-            offset: widget.baseUrl.isNotEmpty ? widget.baseUrl.length : _httpStr.length,
+            offset: widget.baseUrl.isNotEmpty
+                ? widget.baseUrl.length
+                : _httpStr.length,
           ),
         ),
       ),
@@ -91,7 +94,8 @@ class _TestScaffoldResizePageState extends State<TestScaffoldResizePage> {
               SizedBox(height: 5.0),
               Row(
                 children: <Widget>[
-                  Text('温馨提示：请以\"http://\"开头，并且不能以\"/\"结尾。', style: TextStyle(fontSize: 10.0))
+                  Text('温馨提示：请以\"http://\"开头，并且不能以\"/\"结尾。',
+                      style: TextStyle(fontSize: 10.0))
                 ],
               ),
             ],
