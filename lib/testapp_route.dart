@@ -11,6 +11,7 @@ import 'pages/looks_like_sliver_appbar.dart';
 import 'pages/test_inner_shadow_page.dart';
 import 'pages/test_map_notify.dart';
 import 'pages/test_scaffold_resize_page.dart';
+import 'pages/test_selector_page.dart';
 import 'pages/test_tabbar_view_page.dart';
 import 'pages/textfield_as_fab_page.dart';
 import 'pages/will_pop_scope_page.dart';
@@ -45,7 +46,7 @@ RouteResult getRouteResult({String name, Map<String, dynamic> arguments}) {
     case '/test-map-notify-page':
       return RouteResult(
         name: name,
-        widget: TestMapNotifyPage(),
+        widget: TestSelectorPage(),
         routeName: 'Map notify测试页',
       );
     case '/test-scaffold-resize-page':
@@ -53,6 +54,12 @@ RouteResult getRouteResult({String name, Map<String, dynamic> arguments}) {
         name: name,
         widget: TestScaffoldResizePage(),
         routeName: 'Scaffold大小变化测试页',
+      );
+    case '/test-selector-page':
+      return RouteResult(
+        name: name,
+        widget: TestSelectorPage(),
+        routeName: 'Selector测试页',
       );
     case '/test-stack-tabbarview-page':
       return RouteResult(

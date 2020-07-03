@@ -9,77 +9,85 @@ const List<String> routeNames = <String>[
   '/test-inner-shadow-page',
   '/test-map-notify-page',
   '/test-scaffold-resize-page',
+  '/test-selector-page',
   '/test-stack-tabbarview-page',
   '/text-field-in-floating-action-button-page',
-  '/will-pop-scope-page'
+  '/will-pop-scope-page',
 ];
 
 class Routes {
   const Routes._();
 
-  /// 分类页
+  /// '分类页'
   ///
-  /// [name] : /categories-page
+  /// [name] : '/categories-page'
   ///
-  /// [routeName] : 分类页
+  /// [routeName] : '分类页'
   static const String categoriesPage = '/categories-page';
 
-  /// 自定义pageview indicator测试页
+  /// '自定义pageview indicator测试页'
   ///
-  /// [name] : /custom-page-view-indicator-page
+  /// [name] : '/custom-page-view-indicator-page'
   ///
-  /// [routeName] : 自定义pageview indicator测试页
+  /// [routeName] : '自定义pageview indicator测试页'
   static const String customPageViewIndicatorPage =
       '/custom-page-view-indicator-page';
 
-  /// SliverAppBar测试页
+  /// 'SliverAppBar测试页'
   ///
-  /// [name] : /looks-like-sliver-appbar-page
+  /// [name] : '/looks-like-sliver-appbar-page'
   ///
-  /// [routeName] : SliverAppBar测试页
+  /// [routeName] : 'SliverAppBar测试页'
   static const String looksLikeSliverAppbarPage =
       '/looks-like-sliver-appbar-page';
 
-  /// 内部阴影测试页
+  /// '内部阴影测试页'
   ///
-  /// [name] : /test-inner-shadow-page
+  /// [name] : '/test-inner-shadow-page'
   ///
-  /// [routeName] : 内部阴影测试页
+  /// [routeName] : '内部阴影测试页'
   static const String testInnerShadowPage = '/test-inner-shadow-page';
 
-  /// Map notify测试页
+  /// 'Map notify测试页'
   ///
-  /// [name] : /test-map-notify-page
+  /// [name] : '/test-map-notify-page'
   ///
-  /// [routeName] : Map notify测试页
+  /// [routeName] : 'Map notify测试页'
   static const String testMapNotifyPage = '/test-map-notify-page';
 
-  /// Scaffold大小变化测试页
+  /// 'Scaffold大小变化测试页'
   ///
-  /// [name] : /test-scaffold-resize-page
+  /// [name] : '/test-scaffold-resize-page'
   ///
-  /// [routeName] : Scaffold大小变化测试页
+  /// [routeName] : 'Scaffold大小变化测试页'
   static const String testScaffoldResizePage = '/test-scaffold-resize-page';
 
-  /// 测试TabBarView
+  /// 'Selector测试页'
   ///
-  /// [name] : /test-stack-tabbarview-page
+  /// [name] : '/test-selector-page'
   ///
-  /// [routeName] : 测试TabBarView
+  /// [routeName] : 'Selector测试页'
+  static const String testSelectorPage = '/test-selector-page';
+
+  /// '测试TabBarView'
+  ///
+  /// [name] : '/test-stack-tabbarview-page'
+  ///
+  /// [routeName] : '测试TabBarView'
   static const String testStackTabbarviewPage = '/test-stack-tabbarview-page';
 
-  /// TextField与FAB测试页
+  /// 'TextField与FAB测试页'
   ///
-  /// [name] : /text-field-in-floating-action-button-page
+  /// [name] : '/text-field-in-floating-action-button-page'
   ///
-  /// [routeName] : TextField与FAB测试页
+  /// [routeName] : 'TextField与FAB测试页'
   static const String textFieldInFloatingActionButtonPage =
       '/text-field-in-floating-action-button-page';
 
-  /// pop拦截测试页
+  /// 'pop拦截测试页'
   ///
-  /// [name] : /will-pop-scope-page
+  /// [name] : '/will-pop-scope-page'
   ///
-  /// [routeName] : pop拦截测试页
+  /// [routeName] : 'pop拦截测试页'
   static const String willPopScopePage = '/will-pop-scope-page';
 }
