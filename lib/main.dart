@@ -10,7 +10,6 @@ import 'package:testapp/testapp_route_helper.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final Directory dir = await getApplicationDocumentsDirectory();
 
   runApp(MyApp());
 
