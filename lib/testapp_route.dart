@@ -10,6 +10,7 @@ import 'pages/custom_page_indicator_page.dart';
 import 'pages/looks_like_sliver_appbar.dart';
 import 'pages/test_inner_shadow_page.dart';
 import 'pages/test_map_notify.dart';
+import 'pages/test_progress_bar.dart';
 import 'pages/test_scaffold_resize_page.dart';
 import 'pages/test_selector_page.dart';
 import 'pages/test_tabbar_view_page.dart';
@@ -48,6 +49,12 @@ RouteResult getRouteResult({String name, Map<String, dynamic> arguments}) {
         name: name,
         widget: TestSelectorPage(),
         routeName: 'Map notify测试页',
+      );
+    case '/test-progress-bar':
+      return RouteResult(
+        name: name,
+        widget: ProgressBarPage(),
+        routeName: 'Custom progress bar',
       );
     case '/test-scaffold-resize-page':
       return RouteResult(

@@ -58,6 +58,7 @@
 **/ios/**/xcuserdata
 **/ios/.generated/
 **/ios/Flutter/App.framework
+**/ios/Flutter/.last_build_id
 **/ios/Flutter/Flutter.framework
 **/ios/Flutter/Generated.xcconfig
 **/ios/Flutter/app.flx
@@ -65,6 +66,15 @@
 **/ios/Flutter/flutter_assets/
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
+
+# Web related
+lib/generated_plugin_registrant.dart
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
 
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3

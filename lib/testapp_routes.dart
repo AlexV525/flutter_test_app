@@ -8,8 +8,8 @@ const List<String> routeNames = <String>[
   '/looks-like-sliver-appbar-page',
   '/test-inner-shadow-page',
   '/test-map-notify-page',
+  '/test-progress-bar',
   '/test-scaffold-resize-page',
-  '/test-selector-page',
   '/test-stack-tabbarview-page',
   '/text-field-in-floating-action-button-page',
   '/will-pop-scope-page',
@@ -55,6 +55,13 @@ class Routes {
   /// [routeName] : 'Map notify测试页'
   static const String testMapNotifyPage = '/test-map-notify-page';
 
+  /// 'Custom progress bar'
+  ///
+  /// [name] : '/test-progress-bar'
+  ///
+  /// [routeName] : 'Custom progress bar'
+  static const String testProgressBar = '/test-progress-bar';
+
   /// 'Scaffold大小变化测试页'
   ///
   /// [name] : '/test-scaffold-resize-page'
@@ -62,15 +69,18 @@ class Routes {
   /// [routeName] : 'Scaffold大小变化测试页'
   static const String testScaffoldResizePage = '/test-scaffold-resize-page';
 
+  /// '测试TabBarView'
   /// 'Selector测试页'
   ///
   /// [name] : '/test-selector-page'
   ///
+  /// [name] : '/test-stack-tabbarview-page'
   /// [routeName] : 'Selector测试页'
   static const String testSelectorPage = '/test-selector-page';
 
   /// '测试TabBarView'
   ///
+  /// [routeName] : '测试TabBarView'
   /// [name] : '/test-stack-tabbarview-page'
   ///
   /// [routeName] : '测试TabBarView'

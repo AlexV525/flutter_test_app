@@ -4,7 +4,7 @@
 ///
 export 'package:ff_annotation_route/ff_annotation_route.dart'
     show FFRoute, PageRouteType;
+export 'package:flutter_common_exports/flutter_common_exports.dart';
 
 export 'package:testapp/testapp_routes.dart';
-export 'package:testapp/providers/providers.dart'
-;
+export 'package:testapp/providers/providers.dart';
