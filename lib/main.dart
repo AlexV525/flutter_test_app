@@ -1,9 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'package:path_provider/path_provider.dart';
 
 import 'package:testapp/pages/splash_page.dart';
 import 'package:testapp/testapp_route_helper.dart';
@@ -29,9 +26,6 @@ class MyApp extends StatelessWidget {
       ),
       navigatorObservers: [FFNavigatorObserver()],
       onGenerateRoute: onGenerateRouteHelper,
-//      onGenerateRoute: <T>(RouteSettings settings) {
-//          return DatePickerRoute() as Route<T>;
-//      },
       home: SplashPage(),
     );
   }

@@ -9,10 +9,8 @@ import 'pages/categories_page.dart';
 import 'pages/custom_page_indicator_page.dart';
 import 'pages/looks_like_sliver_appbar.dart';
 import 'pages/test_inner_shadow_page.dart';
-import 'pages/test_map_notify.dart';
-import 'pages/test_progress_bar.dart';
 import 'pages/test_scaffold_resize_page.dart';
-import 'pages/test_selector_page.dart';
+import 'pages/test_struct_height_issue.dart';
 import 'pages/test_tabbar_view_page.dart';
 import 'pages/textfield_as_fab_page.dart';
 import 'pages/will_pop_scope_page.dart';
@@ -44,35 +42,23 @@ RouteResult getRouteResult({String name, Map<String, dynamic> arguments}) {
         widget: TestInnerShadowPage(),
         routeName: '内部阴影测试页',
       );
-    case '/test-map-notify-page':
-      return RouteResult(
-        name: name,
-        widget: TestSelectorPage(),
-        routeName: 'Map notify测试页',
-      );
-    case '/test-progress-bar':
-      return RouteResult(
-        name: name,
-        widget: ProgressBarPage(),
-        routeName: 'Custom progress bar',
-      );
     case '/test-scaffold-resize-page':
       return RouteResult(
         name: name,
         widget: TestScaffoldResizePage(),
         routeName: 'Scaffold大小变化测试页',
       );
-    case '/test-selector-page':
-      return RouteResult(
-        name: name,
-        widget: TestSelectorPage(),
-        routeName: 'Selector测试页',
-      );
     case '/test-stack-tabbarview-page':
       return RouteResult(
         name: name,
         widget: TestTabBarViewPage(),
         routeName: '测试TabBarView',
+      );
+    case '/test-struct-height-issue-page':
+      return RouteResult(
+        name: name,
+        widget: TestStructHeightIssuePage(),
+        routeName: 'StructStyle issue test',
       );
     case '/text-field-in-floating-action-button-page':
       return RouteResult(
