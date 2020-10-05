@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:testapp/constants/constants.dart';
 
 @FFRoute(
-  name: "/custom-page-view-indicator-page",
-  routeName: "自定义pageview indicator测试页",
+  name: '/custom-page-view-indicator-page',
+  routeName: '自定义pageview indicator测试页',
 )
 class CustomPageViewIndicatorPage extends StatefulWidget {
   @override
@@ -18,17 +18,16 @@ class CustomPageViewIndicatorPage extends StatefulWidget {
 
 class _CustomPageViewIndicatorPageState
     extends State<CustomPageViewIndicatorPage> {
-  final pageController = PageController();
+  final PageController pageController = PageController();
 
   @override
   void initState() {
-    pageController
-      ..addListener(() {
-        setState(() {
-          currentPage = pageController.page;
-        });
-      });
     super.initState();
+    pageController.addListener(() {
+      setState(() {
+        currentPage = pageController.page;
+      });
+    });
   }
 
   double currentPage = 0.0;
@@ -53,9 +52,9 @@ class _CustomPageViewIndicatorPageState
                     controller: pageController,
                     children: List<Widget>.generate(
                       3,
-                      (_) => Container(
+                      (int i) => Container(
                         color: Colors.blue,
-                        child: Center(child: Text("$_")),
+                        child: Center(child: Text('$i')),
                       ),
                     ),
                   ),
@@ -85,13 +84,13 @@ class _CustomPageViewIndicatorPageState
 }
 
 class CustomIndicatorClipper extends CustomClipper<Rect> {
-  final double page;
-
   const CustomIndicatorClipper({this.page});
+
+  final double page;
 
   @override
   Rect getClip(Size size) {
-    final rect = Rect.fromLTRB(
+    final Rect rect = Rect.fromLTRB(
       page * size.width / 3,
       0.0,
       size.width / 3 + page * size.width / 3,

@@ -16,13 +16,15 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Splash Page")),
+      appBar: AppBar(title: const Text('Splash Page')),
       body: ListView.builder(
-        padding: EdgeInsets.symmetric(vertical: 20.0),
+        padding: const EdgeInsets.symmetric(vertical: 20.0),
         itemCount: routeNames.length,
-        itemBuilder: (_, index) => Center(
+        itemBuilder: (BuildContext _, int index) => Center(
           child: FlatButton(
-            onPressed: () => Navigator.of(context).pushNamed(routeNames.elementAt(index)),
+            onPressed: () => Navigator.of(context).pushNamed(
+              routeNames.elementAt(index),
+            ),
             child: Text(routeNames.elementAt(index)),
           ),
         ),

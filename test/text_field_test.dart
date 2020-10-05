@@ -24,8 +24,13 @@ void main() {
               TextField(
                 key: textField2State,
                 maxLength: 1,
-                buildCounter:
-                    (context, {currentLength, isFocused, maxLength}) => null,
+                buildCounter: (
+                  BuildContext context, {
+                  int currentLength,
+                  bool isFocused,
+                  int maxLength,
+                }) =>
+                    null,
               ),
             ],
           ),

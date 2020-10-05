@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 import 'package:testapp/constants/constants.dart';
 
-@FFRoute(name: "/test-stack-tabbarview-page", routeName: "测试TabBarView")
+@FFRoute(name: '/test-stack-tabbarview-page', routeName: '测试TabBarView')
 class TestTabBarViewPage extends StatefulWidget {
   @override
   _TestTabBarViewPageState createState() => _TestTabBarViewPageState();
@@ -17,7 +17,8 @@ class TestTabBarViewPage extends StatefulWidget {
 
 class _TestTabBarViewPageState extends State<TestTabBarViewPage>
     with TickerProviderStateMixin {
-  StreamController indexController = StreamController<double>.broadcast();
+  StreamController<double> indexController =
+      StreamController<double>.broadcast();
   TabController tabController;
 
   @override
@@ -35,10 +36,12 @@ class _TestTabBarViewPageState extends State<TestTabBarViewPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: NotificationListener(
+      body: NotificationListener<ScrollNotification>(
         onNotification: (ScrollNotification notification) {
-          indexController.add(notification.metrics.pixels /
-              notification.metrics.viewportDimension);
+          indexController.add(
+            notification.metrics.pixels /
+            notification.metrics.viewportDimension,
+          );
           return true;
         },
         child: Stack(
@@ -49,11 +52,11 @@ class _TestTabBarViewPageState extends State<TestTabBarViewPage>
                 children: <Widget>[
                   Container(
                     color: Colors.redAccent,
-                    child: SizedBox.expand(),
+                    child: const SizedBox.expand(),
                   ),
                   Container(
                     color: Colors.yellow,
-                    child: SizedBox.expand(),
+                    child: const SizedBox.expand(),
                   ),
                 ],
               ),
@@ -62,21 +65,24 @@ class _TestTabBarViewPageState extends State<TestTabBarViewPage>
               top: 0.0,
               left: 0.0,
               right: 0.0,
-              child: StreamBuilder(
+              child: StreamBuilder<double>(
                 initialData: 0.0,
                 stream: indexController.stream,
-                builder: (_, data) => Container(
-                  color: Colors.blue
-                      .withOpacity(math.min(1.0, data.data as double) * 1.0),
-                  child: TabBar(
-                    controller: tabController,
-                    indicatorColor: Colors.transparent,
-                    tabs: <Widget>[
-                      Tab(text: '111'),
-                      Tab(text: '222'),
-                    ],
-                  ),
-                ),
+                builder: (BuildContext _, AsyncSnapshot<double> data) {
+                  return Container(
+                    color: Colors.blue.withOpacity(
+                      math.min(1.0, data.data) * 1.0,
+                    ),
+                    child: TabBar(
+                      controller: tabController,
+                      indicatorColor: Colors.transparent,
+                      tabs: const <Widget>[
+                        Tab(text: '111'),
+                        Tab(text: '222'),
+                      ],
+                    ),
+                  );
+                },
               ),
             ),
           ],

@@ -9,8 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:testapp/constants/constants.dart';
 
 @FFRoute(
-  name: "/looks-like-sliver-appbar-page",
-  routeName: "SliverAppBar测试页",
+  name: '/looks-like-sliver-appbar-page',
+  routeName: 'SliverAppBar测试页',
 )
 class LooksLikeSliverAppBarPage extends StatefulWidget {
   @override
@@ -19,16 +19,16 @@ class LooksLikeSliverAppBarPage extends StatefulWidget {
 }
 
 class _LooksLikeSliverAppBarPageState extends State<LooksLikeSliverAppBarPage> {
-  final _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
 
   double expandPhysics = 100;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: NotificationListener(
+      body: NotificationListener<ScrollUpdateNotification>(
         onNotification: (ScrollUpdateNotification notification) {
-          final _ = 84 - math.min(50.0, notification.metrics.pixels);
+          final double _ = 84.0 - math.min(50.0, notification.metrics.pixels);
           print(_);
           if (_ != expandPhysics)
             setState(() {
@@ -47,9 +47,9 @@ class _LooksLikeSliverAppBarPageState extends State<LooksLikeSliverAppBarPage> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text("Primary title"),
-                    Text("secondary title"),
+                  children: const <Widget>[
+                    Text('Primary title'),
+                    Text('secondary title'),
                   ],
                 ),
               ),
@@ -60,12 +60,12 @@ class _LooksLikeSliverAppBarPageState extends State<LooksLikeSliverAppBarPage> {
                 controller: _scrollController,
                 children: List<Widget>.generate(
                   20,
-                  (i) => Container(
-                    margin: EdgeInsets.all(20.0),
+                  (int i) => Container(
+                    margin: const EdgeInsets.all(20.0),
                     width: 50.0,
                     height: 50.0,
                     color: Colors.redAccent,
-                    child: Center(child: Text("$i")),
+                    child: Center(child: Text('$i')),
                   ),
                 ),
               ),

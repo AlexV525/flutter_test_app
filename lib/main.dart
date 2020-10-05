@@ -24,11 +24,9 @@ class MyApp extends StatelessWidget {
         platform: TargetPlatform.iOS,
         primarySwatch: Colors.blue,
       ),
-      navigatorObservers: [FFNavigatorObserver()],
+      navigatorObservers: <NavigatorObserver>[FFNavigatorObserver()],
       onGenerateRoute: onGenerateRouteHelper,
       home: SplashPage(),
     );
   }
-}
-class DatePickerRoute extends Route<DateTime> {
 }

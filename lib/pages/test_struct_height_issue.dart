@@ -6,13 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:testapp/constants/constants.dart';
 
 @FFRoute(
-  name: "/test-struct-height-issue-page",
+  name: '/test-struct-height-issue-page',
   routeName: 'StructStyle issue test',
 )
 class TestStructHeightIssuePage extends StatelessWidget {
+  final double fontSize = 50.0;
+
   @override
   Widget build(BuildContext context) {
-    final double fontSize = 50.0;
     return Scaffold(
       appBar: AppBar(
         title: Text(ModalRoute.of(context).settings.name),

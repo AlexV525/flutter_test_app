@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:testapp/constants/constants.dart';
 
 @FFRoute(
-  name: "/text-field-in-floating-action-button-page",
-  routeName: "TextField与FAB测试页",
+  name: '/text-field-in-floating-action-button-page',
+  routeName: 'TextField与FAB测试页',
 )
 class TextFieldInFloatingActionButtonPage extends StatefulWidget {
   @override
@@ -20,7 +20,7 @@ class _TextFieldInFloatingActionButtonPageState
     extends State<TextFieldInFloatingActionButtonPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: null,

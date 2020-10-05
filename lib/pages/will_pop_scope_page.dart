@@ -7,27 +7,25 @@ import 'package:flutter/material.dart';
 import 'package:testapp/constants/constants.dart';
 
 @FFRoute(
-  name: "/will-pop-scope-page",
-  routeName: "pop拦截测试页",
+  name: '/will-pop-scope-page',
+  routeName: 'pop拦截测试页',
 )
 class WillPopScopePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        print("onWillPop");
+        print('onWillPop');
         return true;
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("Test"),
-        ),
+        appBar: AppBar(title: const Text('Test')),
         body: Column(
           children: <Widget>[
             FlatButton(
-              child: Text("Test Pop"),
+              child: const Text('Test Pop'),
               onPressed: () {
-                Navigator.of(context).pushNamed("/test-pop");
+                Navigator.of(context).pushNamed('/test-pop');
               },
             ),
           ],
