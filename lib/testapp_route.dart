@@ -10,6 +10,7 @@ import 'pages/custom_page_indicator_page.dart';
 import 'pages/looks_like_sliver_appbar.dart';
 import 'pages/test_struct_height_issue.dart';
 import 'pages/test_tabbar_view_page.dart';
+import 'pages/test_ticker_page.dart';
 import 'pages/textfield_as_fab_page.dart';
 import 'pages/will_pop_scope_page.dart';
 
@@ -51,6 +52,12 @@ RouteResult getRouteResult({String name, Map<String, dynamic> arguments}) {
         name: name,
         widget: WillPopScopePage(),
         routeName: 'pop拦截测试页',
+      );
+    case 'test-ticker-page':
+      return RouteResult(
+        name: name,
+        widget: TestTickerPage(),
+        routeName: '测试Ticker',
       );
     default:
       return const RouteResult(name: 'flutterCandies://notfound');

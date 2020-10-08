@@ -10,6 +10,7 @@ const List<String> routeNames = <String>[
   '/test-struct-height-issue-page',
   '/text-field-in-floating-action-button-page',
   '/will-pop-scope-page',
+  'test-ticker-page',
 ];
 
 class Routes {
@@ -60,4 +61,11 @@ class Routes {
   ///
   /// [routeName] : 'pop拦截测试页'
   static const String willPopScopePage = '/will-pop-scope-page';
+
+  /// '测试Ticker'
+  ///
+  /// [name] : 'test-ticker-page'
+  ///
+  /// [routeName] : '测试Ticker'
+  static const String testTickerPage = 'test-ticker-page';
 }
