@@ -6,13 +6,9 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-import 'package:testapp/constants/constants.dart';
-
-@FFRoute(
-  name: '/looks-like-sliver-appbar-page',
-  routeName: 'SliverAppBar测试页',
-)
 class LooksLikeSliverAppBarPage extends StatefulWidget {
+  const LooksLikeSliverAppBarPage({Key? key}) : super(key: key);
+
   @override
   _LooksLikeSliverAppBarPageState createState() =>
       _LooksLikeSliverAppBarPageState();
@@ -39,8 +35,10 @@ class _LooksLikeSliverAppBarPageState extends State<LooksLikeSliverAppBarPage> {
         child: Column(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context)?.padding.top ?? 0.0,
+              ),
+              width: MediaQuery.of(context)?.size.width,
               color: Colors.cyan,
               child: SizedBox(
                 height: expandPhysics,

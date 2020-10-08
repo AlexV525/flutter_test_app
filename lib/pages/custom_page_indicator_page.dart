@@ -4,13 +4,9 @@
 ///
 import 'package:flutter/material.dart';
 
-import 'package:testapp/constants/constants.dart';
-
-@FFRoute(
-  name: '/custom-page-view-indicator-page',
-  routeName: '自定义pageview indicator测试页',
-)
 class CustomPageViewIndicatorPage extends StatefulWidget {
+  const CustomPageViewIndicatorPage({Key? key}) : super(key: key);
+
   @override
   _CustomPageViewIndicatorPageState createState() =>
       _CustomPageViewIndicatorPageState();
@@ -25,7 +21,7 @@ class _CustomPageViewIndicatorPageState
     super.initState();
     pageController.addListener(() {
       setState(() {
-        currentPage = pageController.page;
+        currentPage = pageController.page ?? 0;
       });
     });
   }
@@ -84,7 +80,7 @@ class _CustomPageViewIndicatorPageState
 }
 
 class CustomIndicatorClipper extends CustomClipper<Rect> {
-  const CustomIndicatorClipper({this.page});
+  const CustomIndicatorClipper({required this.page});
 
   final double page;
 

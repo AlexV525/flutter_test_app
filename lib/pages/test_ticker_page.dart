@@ -5,11 +5,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
-import 'package:testapp/constants/constants.dart';
-
-@FFRoute(name: 'test-ticker-page', routeName: '测试Ticker')
 class TestTickerPage extends StatefulWidget {
-  const TestTickerPage({Key key}) : super(key: key);
+  const TestTickerPage({Key? key}) : super(key: key);
 
   @override
   _TestTickerPageState createState() => _TestTickerPageState();

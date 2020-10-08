@@ -6,11 +6,9 @@ import 'package:flutter/material.dart';
 
 import 'package:testapp/constants/constants.dart';
 
-@FFRoute(
-  name: '/will-pop-scope-page',
-  routeName: 'pop拦截测试页',
-)
 class WillPopScopePage extends StatelessWidget {
+  const WillPopScopePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -24,9 +22,7 @@ class WillPopScopePage extends StatelessWidget {
           children: <Widget>[
             FlatButton(
               child: const Text('Test Pop'),
-              onPressed: () {
-                Navigator.of(context).pushNamed('/test-pop');
-              },
+              onPressed: Navigator.of(context)?.pop,
             ),
           ],
         ),

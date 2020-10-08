@@ -4,13 +4,9 @@
 ///
 import 'package:flutter/material.dart';
 
-import 'package:testapp/constants/constants.dart';
-
-@FFRoute(
-  name: '/text-field-in-floating-action-button-page',
-  routeName: 'TextField与FAB测试页',
-)
 class TextFieldInFloatingActionButtonPage extends StatefulWidget {
+  const TextFieldInFloatingActionButtonPage({Key? key}) : super(key: key);
+
   @override
   _TextFieldInFloatingActionButtonPageState createState() =>
       _TextFieldInFloatingActionButtonPageState();

@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 import 'package:testapp/pages/splash_page.dart';
-import 'package:testapp/testapp_route_helper.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,8 +23,6 @@ class MyApp extends StatelessWidget {
         platform: TargetPlatform.iOS,
         primarySwatch: Colors.blue,
       ),
-      navigatorObservers: <NavigatorObserver>[FFNavigatorObserver()],
-      onGenerateRoute: onGenerateRouteHelper,
       home: SplashPage(),
     );
   }
