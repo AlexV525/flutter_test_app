@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:testapp/pages/looks_like_sliver_appbar.dart';
 import 'package:testapp/pages/test_ticker_page.dart';
-import 'package:testapp/pages/textfield_as_fab_page.dart';
+import 'package:testapp/pages/test_text_field_page.dart';
 import 'package:testapp/pages/will_pop_scope_page.dart';
 
 import 'custom_page_indicator_page.dart';
@@ -33,7 +33,7 @@ class _SplashPageState extends State<SplashPage> {
       ),
       _RouteItem(
         name: 'textfield-as-fab-page',
-        page: TextFieldInFloatingActionButtonPage(),
+        page: TestTextFieldPage(),
       ),
       _RouteItem(
         name: 'will-pop-scope-page',
