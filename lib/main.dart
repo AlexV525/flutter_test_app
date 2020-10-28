@@ -19,10 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Test App Demo',
-      theme: ThemeData(
-        platform: TargetPlatform.iOS,
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: SplashPage(),
     );
   }

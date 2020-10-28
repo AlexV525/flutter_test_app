@@ -10,10 +10,11 @@ dependencies:
   flutter:
     sdk: flutter
 
+  photo_manager: 0.5.8 # Using this to generate a single `Podfile`.
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  ff_annotation_route: ^3.2.0
 
 flutter:
   uses-material-design: true
