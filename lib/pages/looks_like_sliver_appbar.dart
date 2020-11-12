@@ -36,9 +36,9 @@ class _LooksLikeSliverAppBarPageState extends State<LooksLikeSliverAppBarPage> {
           children: <Widget>[
             Container(
               padding: EdgeInsets.only(
-                top: MediaQuery.of(context)?.padding.top ?? 0.0,
+                top: MediaQuery.of(context).padding.top,
               ),
-              width: MediaQuery.of(context)?.size.width,
+              width: MediaQuery.of(context).size.width,
               color: Colors.cyan,
               child: SizedBox(
                 height: expandPhysics,

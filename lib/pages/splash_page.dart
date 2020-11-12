@@ -10,6 +10,7 @@ import 'looks_like_sliver_appbar.dart';
 import 'test_assets_conflict_page.dart';
 import 'test_text_field_page.dart';
 import 'test_ticker_page.dart';
+import 'test_webview_in_single_scroll_view_page.dart';
 import 'will_pop_scope_page.dart';
 
 class SplashPage extends StatefulWidget {
@@ -43,6 +44,10 @@ class _SplashPageState extends State<SplashPage> {
       _RouteItem(
         name: 'will-pop-scope-page',
         page: WillPopScopePage(),
+      ),
+      _RouteItem(
+        name: 'test-WebView-in-single-scroll-view-page',
+        page: TestWebViewInSingleScrollViewPage(),
       ),
     ];
   }
