@@ -12,10 +12,6 @@ dependencies:
 
   photo_manager: 0.5.8 # Using this to generate a single `Podfile`.
 
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-
 flutter:
   uses-material-design: true
   assets:
