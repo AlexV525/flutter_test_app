@@ -22,7 +22,7 @@ class WillPopScopePage extends StatelessWidget {
           children: <Widget>[
             FlatButton(
               child: const Text('Test Pop'),
-              onPressed: Navigator.of(context)?.pop,
+              onPressed: Navigator.of(context).pop,
             ),
           ],
         ),

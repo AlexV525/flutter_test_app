@@ -44,8 +44,11 @@ class _TestWebViewInSingleScrollViewPageState
                     supportZoom: true,
                   ),
                 ),
-                initialUrl:
+                initialUrlRequest: URLRequest(
+                  url: Uri.parse(
                     'https://i0.hdslb.com/bfs/vc/8e084d67aa18ed9c42dce043e06e16b79cbb50ef.png',
+                  ),
+                ),
               ),
             ),
             ...List<Widget>.generate(

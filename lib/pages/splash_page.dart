@@ -60,9 +60,9 @@ class _SplashPageState extends State<SplashPage> {
         padding: const EdgeInsets.symmetric(vertical: 20.0),
         itemCount: routes.length,
         itemBuilder: (BuildContext _, int index) => Center(
-          child: FlatButton(
+          child: TextButton(
             onPressed: () {
-              Navigator.of(context)?.push<void>(
+              Navigator.of(context).push<void>(
                 MaterialPageRoute<dynamic>(builder: (_) => routes[index].page),
               );
             },
