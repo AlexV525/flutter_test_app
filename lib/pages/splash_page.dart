@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'custom_page_indicator_page.dart';
 import 'looks_like_sliver_appbar.dart';
 import 'test_assets_conflict_page.dart';
+import 'test_icon_grid_page.dart';
 import 'test_text_field_page.dart';
 import 'test_ticker_page.dart';
 import 'test_webview_in_single_scroll_view_page.dart';
@@ -21,6 +22,10 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   List<_RouteItem> get routes {
     return const <_RouteItem>[
+      _RouteItem(
+        name: 'test-icon-grid-page',
+        page: TestIconGridPage(),
+      ),
       _RouteItem(
         name: 'custom-page-indicator-page',
         page: CustomPageViewIndicatorPage(),
