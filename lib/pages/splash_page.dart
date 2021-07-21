@@ -3,11 +3,12 @@
 /// [Date] 2019-11-26 09:18
 ///
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 import 'custom_page_indicator_page.dart';
 import 'looks_like_sliver_appbar.dart';
+import 'test_animated_scalable_grid_view_page.dart';
 import 'test_assets_conflict_page.dart';
+import 'test_gallery_view_page.dart';
 import 'test_icon_grid_page.dart';
 import 'test_text_field_page.dart';
 import 'test_ticker_page.dart';
@@ -22,6 +23,14 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   List<_RouteItem> get routes {
     return const <_RouteItem>[
+      _RouteItem(
+        name: 'test-animated-scalable-grid-view-page',
+        page: TestAnimatedScalableGridViewPage(),
+      ),
+      _RouteItem(
+        name: 'test-scalable-grid-view-page',
+        page: TestScalableGridViewPage(),
+      ),
       _RouteItem(
         name: 'test-icon-grid-page',
         page: TestIconGridPage(),
@@ -81,10 +90,7 @@ class _SplashPageState extends State<SplashPage> {
 
 @immutable
 class _RouteItem {
-  const _RouteItem({
-    required this.name,
-    required this.page,
-  });
+  const _RouteItem({required this.name, required this.page});
 
   final String name;
   final Widget page;
