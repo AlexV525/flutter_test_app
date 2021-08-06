@@ -10,7 +10,6 @@ import 'test_animated_scalable_grid_view_page.dart';
 import 'test_assets_conflict_page.dart';
 import 'test_gallery_view_page.dart';
 import 'test_icon_grid_page.dart';
-import 'test_loading_more_list_page.dart';
 import 'test_text_field_page.dart';
 import 'test_ticker_page.dart';
 import 'test_webview_in_single_scroll_view_page.dart';
@@ -24,10 +23,6 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   List<_RouteItem> get routes {
     return const <_RouteItem>[
-      _RouteItem(
-        name: 'test-loading-more-list-page',
-        page: TestLoadingMoreListPage(),
-      ),
       _RouteItem(
         name: 'test-animated-scalable-grid-view-page',
         page: TestAnimatedScalableGridViewPage(),
