@@ -1,23 +1,23 @@
 PODS:
-  - FlutterMacOS (1.22.4)
-  - photo_manager (0.0.1):
+  - FlutterMacOS (1.0.0)
+  - photo_manager (1.0.0):
+    - Flutter
     - FlutterMacOS
 
 DEPENDENCIES:
+  - FlutterMacOS (from `Flutter/ephemeral`)
   - photo_manager (from `Flutter/ephemeral/.symlinks/plugins/photo_manager/macos`)
 
-SPEC REPOS:
-  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
-    - FlutterMacOS
-
 EXTERNAL SOURCES:
+  FlutterMacOS:
+    :path: Flutter/ephemeral
   photo_manager:
     :path: Flutter/ephemeral/.symlinks/plugins/photo_manager/macos
 
 SPEC CHECKSUMS:
-  FlutterMacOS: ac210ef71944b3f04789076d70d4c72c7ec0c619
-  photo_manager: 4f4f808cb9801f1e961a913af4d41c641f79ba26
+  FlutterMacOS: 57701585bf7de1b3fc2bb61f6378d73bbdea8424
+  photo_manager: 84fa94fbeb82e607333ea9a13c43b58e0903a463
 
-PODFILE CHECKSUM: 75ba73a2ec5810b8441245361534b95c904064b5
+PODFILE CHECKSUM: 0d3963a09fc94f580682bd88480486da345dc3f0
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.2
