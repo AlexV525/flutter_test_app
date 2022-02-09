@@ -5,15 +5,12 @@
 import 'package:flutter/material.dart';
 
 import 'custom_page_indicator_page.dart';
-import 'looks_like_sliver_appbar.dart';
 import 'test_animated_scalable_grid_view_page.dart';
-import 'test_assets_conflict_page.dart';
-import 'test_gallery_view_page.dart';
 import 'test_icon_grid_page.dart';
+import 'test_scalable_grid_view_page.dart';
 import 'test_text_field_page.dart';
 import 'test_ticker_page.dart';
-import 'test_webview_in_single_scroll_view_page.dart';
-import 'will_pop_scope_page.dart';
+import 'test_transparent_route_page.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -22,46 +19,18 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   List<_RouteItem> get routes {
-    return const <_RouteItem>[
+    return <_RouteItem>[
+      const _RouteItem(page: CustomPageViewIndicatorPage()),
+      const _RouteItem(page: TestAnimatedScalableGridViewPage()),
+      const _RouteItem(page: TestScalableGridViewPage()),
+      const _RouteItem(page: TestIconGridPage()),
+      const _RouteItem(page: TestTextFieldPage()),
+      const _RouteItem(page: TestTickerPage()),
       _RouteItem(
-        name: 'test-animated-scalable-grid-view-page',
-        page: TestAnimatedScalableGridViewPage(),
-      ),
-      _RouteItem(
-        name: 'test-scalable-grid-view-page',
-        page: TestScalableGridViewPage(),
-      ),
-      _RouteItem(
-        name: 'test-icon-grid-page',
-        page: TestIconGridPage(),
-      ),
-      _RouteItem(
-        name: 'custom-page-indicator-page',
-        page: CustomPageViewIndicatorPage(),
-      ),
-      _RouteItem(
-        name: 'looks-like-sliver-appbar-page',
-        page: LooksLikeSliverAppBarPage(),
-      ),
-      _RouteItem(
-        name: 'test-ticker-page',
-        page: TestTickerPage(),
-      ),
-      _RouteItem(
-        name: 'test-assets-conflict-page',
-        page: TestAssetsConflictPage(),
-      ),
-      _RouteItem(
-        name: 'textfield-as-fab-page',
-        page: TestTextFieldPage(),
-      ),
-      _RouteItem(
-        name: 'will-pop-scope-page',
-        page: WillPopScopePage(),
-      ),
-      _RouteItem(
-        name: 'test-WebView-in-single-scroll-view-page',
-        page: TestWebViewInSingleScrollViewPage(),
+        name: '$TestTransparentRoute',
+        routeBuilder: () => TestTransparentRoute<void>(
+          builder: (_) => const TestTransparentRoutePage(),
+        ),
       ),
     ];
   }
@@ -75,12 +44,15 @@ class _SplashPageState extends State<SplashPage> {
         itemCount: routes.length,
         itemBuilder: (BuildContext _, int index) => Center(
           child: TextButton(
-            onPressed: () {
-              Navigator.of(context).push<void>(
-                MaterialPageRoute<dynamic>(builder: (_) => routes[index].page),
-              );
-            },
-            child: Text(routes[index].name),
+            onPressed: () => Navigator.of(context).push<void>(
+              routes[index].routeBuilder?.call() ??
+                  MaterialPageRoute<dynamic>(
+                    builder: (_) => routes[index].page!,
+                  ),
+            ),
+            child: Text(
+              routes[index].name ?? routes[index].page.runtimeType.toString(),
+            ),
           ),
         ),
       ),
@@ -90,8 +62,14 @@ class _SplashPageState extends State<SplashPage> {
 
 @immutable
 class _RouteItem {
-  const _RouteItem({required this.name, required this.page});
+  const _RouteItem({
+    this.name,
+    this.page,
+    this.routeBuilder,
+  })  : assert(name != null || page != null),
+        assert(page != null || routeBuilder != null);
 
-  final String name;
-  final Widget page;
+  final String? name;
+  final Widget? page;
+  final Route<dynamic> Function()? routeBuilder;
 }
