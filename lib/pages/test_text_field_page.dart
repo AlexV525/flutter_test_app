@@ -3,7 +3,6 @@
 /// [Date] 2020-01-07 12:41
 ///
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 class TestTextFieldPage extends StatefulWidget {
@@ -35,7 +34,7 @@ class _TestTextFieldPageState extends State<TestTextFieldPage> {
 }
 
 class RegExpFormatter extends TextInputFormatter {
-  RegExpFormatter(this.regExp) : assert(regExp != null);
+  RegExpFormatter(this.regExp);
 
   final RegExp regExp;
 

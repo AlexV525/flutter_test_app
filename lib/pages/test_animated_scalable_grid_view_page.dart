@@ -114,7 +114,7 @@ class _ZoomableGridState extends State<ZoomableGrid>
   }
 
   void _scheduleToSetState() {
-    SchedulerBinding.instance!.addPostFrameCallback((_) {
+    SchedulerBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
         setState(() {});
       }
@@ -219,7 +219,7 @@ class _ZoomableGridState extends State<ZoomableGrid>
           _size.value = _maxWidth / widget.initialCrossAxisCount;
           _maxItemSize = Size.square(_maxWidth / widget.minCrossAxisCount);
           _minItemSize = Size.square(_maxWidth / widget.maxCrossAxisCount);
-          SchedulerBinding.instance!.addPostFrameCallback((_) {
+          SchedulerBinding.instance.addPostFrameCallback((_) {
             _snapToGrid();
           });
         }

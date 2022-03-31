@@ -13,6 +13,8 @@ import 'test_ticker_page.dart';
 import 'test_transparent_route_page.dart';
 
 class SplashPage extends StatefulWidget {
+  const SplashPage({Key? key}) : super(key: key);
+
   @override
   _SplashPageState createState() => _SplashPageState();
 }

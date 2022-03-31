@@ -23,13 +23,13 @@ class _TestTickerPageState extends State<TestTickerPage> {
       appBar: AppBar(),
       body: Column(
         children: <Widget>[
-          FlatButton(
+          TextButton(
             onPressed: ticker.start,
-            child: Text('Ticker start'),
+            child: const Text('Ticker start'),
           ),
-          FlatButton(
+          TextButton(
             onPressed: ticker.stop,
-            child: Text('Ticker stop'),
+            child: const Text('Ticker stop'),
           ),
         ],
       ),
