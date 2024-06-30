@@ -1,39 +1,18 @@
-///
-/// [Author] Alex (https://github.com/AlexVincent525)
-/// [Date] 2019-11-26 09:18
-///
+// [Author] Alex (https://github.com/AlexVincent525)
+// [Date] 2019-11-26 09:18
+
 import 'package:flutter/material.dart';
 
-import 'custom_page_indicator_page.dart';
-import 'test_animated_scalable_grid_view_page.dart';
-import 'test_icon_grid_page.dart';
-import 'test_scalable_grid_view_page.dart';
-import 'test_text_field_page.dart';
-import 'test_ticker_page.dart';
-import 'test_transparent_route_page.dart';
-
 class SplashPage extends StatefulWidget {
-  const SplashPage({Key? key}) : super(key: key);
+  const SplashPage({super.key});
 
   @override
-  _SplashPageState createState() => _SplashPageState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
 class _SplashPageState extends State<SplashPage> {
   List<_RouteItem> get routes {
     return <_RouteItem>[
-      const _RouteItem(page: CustomPageViewIndicatorPage()),
-      const _RouteItem(page: TestAnimatedScalableGridViewPage()),
-      const _RouteItem(page: TestScalableGridViewPage()),
-      const _RouteItem(page: TestIconGridPage()),
-      const _RouteItem(page: TestTextFieldPage()),
-      const _RouteItem(page: TestTickerPage()),
-      _RouteItem(
-        name: '$TestTransparentRoute',
-        routeBuilder: () => TestTransparentRoute<void>(
-          builder: (_) => const TestTransparentRoutePage(),
-        ),
-      ),
     ];
   }
 
